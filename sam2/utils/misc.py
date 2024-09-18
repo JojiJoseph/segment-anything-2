@@ -12,6 +12,7 @@ import numpy as np
 import torch
 from PIL import Image
 from tqdm import tqdm
+import natsort import natsorted
 
 
 def get_sdpa_settings():
@@ -204,7 +205,7 @@ def load_video_frames(
         for p in os.listdir(image_folder)
         if os.path.splitext(p)[-1] in [".jpg", ".jpeg", ".JPG", ".JPEG", ".png", ".PNG"]
     ]
-    frame_names.sort(key=lambda p: int(os.path.splitext(p)[0]))
+    frame_names = natsorted(frame_names)
     num_frames = len(frame_names)
     if num_frames == 0:
         raise RuntimeError(f"no images found in {image_folder}")
