@@ -12,7 +12,7 @@ import numpy as np
 import torch
 from PIL import Image
 from tqdm import tqdm
-import natsort import natsorted
+from natsort import natsorted
 
 
 def get_sdpa_settings():
